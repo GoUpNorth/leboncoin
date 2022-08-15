@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+java {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+}
+
+apply from: file("../dependencies.gradle")
+
+dependencies {
+    implementation "androidx.paging:paging-common-ktx:$paging_version"
+    implementation "androidx.room:room-common:$room_version"
+    implementation "javax.inject:javax.inject:1"
+}

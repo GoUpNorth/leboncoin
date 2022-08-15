@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas".toString()) // room schemas location
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+        freeCompilerArgs = ["-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"]
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+apply from: file("../dependencies.gradle")
+
+dependencies {
+    implementation project(":domain")
+
+    // http requests
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    // offline caching
+    api "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-paging:$room_version"
+    ksp "androidx.room:room-compiler:$room_version"
+
+    // Coroutines + Flows
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // Paging
+    implementation "androidx.paging:paging-common-ktx:$paging_version"
+
+    // Dependency injection
+    implementation "javax.inject:javax.inject:1"
+
+    // Json serialization
+    api "com.squareup.moshi:moshi:$moshi_version"
+    ksp "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "androidx.test:core:$android_test_version"
+    testImplementation "junit:junit:$junit_version"
+
+    // I'm not sure why I need to add this test dependency here, but without it
+    // my unit tests using a Room in memory database won't run (java.lang.NoClassDefFoundError: androidx/lifecycle/LiveData)
+    // It might be a bug in the library
+    testImplementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1"
+}

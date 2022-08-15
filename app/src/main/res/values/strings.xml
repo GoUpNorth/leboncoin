@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Leboncoin Albums</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="error">An error occurred, please check your network connection or try again later</string>
+    <string name="retry">Retry</string>
+    <string name="sort_by_id_asc">Sort by index asc</string>
+    <string name="sort_by_id_desc">Sort by index desc</string>
+    <string name="sort_by_title_asc">Sort by title asc</string>
+    <string name="sort_by_title_desc">Sort by title desc</string>
+</resources>

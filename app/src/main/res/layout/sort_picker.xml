@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:orientation="vertical">
+
+    <CheckedTextView
+        android:id="@+id/sort_by_id_asc"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?selectableItemBackground"
+        android:checkMark="@drawable/check_mark_drawable"
+        android:checkMarkTint="?attr/colorPrimary"
+        android:gravity="start|center_vertical"
+        android:text="@string/sort_by_id_asc"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:checked="true" />
+
+    <CheckedTextView
+        android:id="@+id/sort_by_id_desc"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?selectableItemBackground"
+        android:checkMark="@drawable/check_mark_drawable"
+        android:checkMarkTint="?attr/colorPrimary"
+        android:gravity="start|center_vertical"
+        android:text="@string/sort_by_id_desc"
+        android:textAppearance="?attr/textAppearanceBody1" />
+
+
+    <CheckedTextView
+        android:id="@+id/sort_by_title_asc"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?selectableItemBackground"
+        android:checkMark="@drawable/check_mark_drawable"
+        android:checkMarkTint="?attr/colorPrimary"
+        android:gravity="start|center_vertical"
+        android:text="@string/sort_by_title_asc"
+        android:textAppearance="?attr/textAppearanceBody1" />
+
+
+    <CheckedTextView
+        android:id="@+id/sort_by_title_desc"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?selectableItemBackground"
+        android:checkMark="@drawable/check_mark_drawable"
+        android:checkMarkTint="?attr/colorPrimary"
+        android:gravity="start|center_vertical"
+        android:text="@string/sort_by_title_desc"
+        android:textAppearance="?attr/textAppearanceBody1" />
+</LinearLayout>
